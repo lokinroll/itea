@@ -17,7 +17,7 @@ pipeline {
         
         stage('Test') {
             steps {
-                sh 'docker run -t ${IMAGE_NAME}:${IMAGE_TAG}'
+                sh 'dgoss run -t ${IMAGE_NAME}:${IMAGE_TAG}'
             }
         }
         
