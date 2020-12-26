@@ -1,6 +1,4 @@
 file:
-  ./docker-entrypoint.sh:
-    exists: false
   /usr/share/nginx/html/index.html:
     exists: true
 package:
