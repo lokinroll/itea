@@ -25,7 +25,7 @@ pipeline {
             steps {
                 script {
                     docker.withRegistry('https://registry.hub.docker.com', '${DOCKER_CREDS}') {
-                        app.push("lokinroll/${env.BUILD_ID}-${COMMIT_ID}")                
+                        dockerImage.push("${env.BUILD_ID}-${COMMIT_ID}")                
                     }
                 }
             }
