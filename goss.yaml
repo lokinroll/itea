@@ -1,3 +1,10 @@
+file:
+  /goss/docker-entrypoint.sh:
+    exists: false
+    contains: []
+  /usr/share/nginx/html/index.html:
+    exists: true
+    contains: [My name is James and I am 28 years old.]
 package:
   nginx:
     installed: true
@@ -10,8 +17,9 @@ process:
   nginx:
     running: true
 http:
-        http://localhost:8080
+  http://localhost:
     status: 200
+    allow-insecure: false
+    no-follow-redirects: false
     timeout: 5000
-    body:
-    - My name is James and I am 28 years old. 
+    body: []
