@@ -17,7 +17,7 @@ pipeline {
         
         stage('Test') {
             steps {
-                sh 'dgoss run -t ${IMAGE_NAME}:${IMAGE_TAG}'
+                sh 'dgoss run -p 80:80 -d -e "NAME=James" -e "AGE=28" ${IMAGE_NAME}:${IMAGE_TAG}'
             }
         }
         
