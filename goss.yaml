@@ -1,12 +1,3 @@
-file:
-  /var/log/nginx/access.log:
-    exists: true
-    linked-to: /dev/stdout
-    filetype: symlink
-  /var/log/nginx/error.log:
-    exists: true
-    linked-to: /dev/stderr
-    filetype: symlink
 package:
   nginx:
     installed: true
