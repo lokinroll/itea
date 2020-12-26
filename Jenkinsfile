@@ -24,7 +24,7 @@ pipeline {
         stage('Push') {
             steps {
                 script {
-                    docker.withRegistry('https://registry.hub.docker.com/repository/docker/lokinroll/nginx-index', '${DOCKER_CREDS}') {
+                    docker.withRegistry('https://registry.hub.docker.com', lokinroll '${DOCKER_CREDS}') {
                         app.push("${env.BUILD_ID}-${COMMIT_ID}")                
                     }
                 }
