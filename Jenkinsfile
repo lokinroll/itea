@@ -23,11 +23,18 @@ pipeline {
         stage('Push') {
             steps {
                 script {
-                    emailext attachLog: true, body: 'test', subject: 'Jenkins Job', to: 'lokinroll@gmail.com'
                     docker.withRegistry('https://registry.hub.docker.com/', '${DOCKER_CREDS}') {
                         app.push("${IMAGE_TAG}")
                         app.push("latest")
                     }
+                }
+            }
+        }
+        stage('Send Email') {
+            steps {
+                script {
+                    emailext attachLog: true, body: 'test', subject: 'Jenkins Job', to: 'lokinroll@gmail.com'
+                        }
                 }
             }
         }
