@@ -31,12 +31,13 @@ pipeline {
             }
         }
 
+          
+    
+    }
+
         post {
          always { 
              emailext attachLog: true, body: 'test', replyTo: 'lokinroll@gmail.com', subject: 'Jenkins job', to: 'lokinroll@gmail.com'
             }
-        }  
-    
-    }
-
+        }
 }
