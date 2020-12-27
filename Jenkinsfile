@@ -19,7 +19,7 @@ pipeline {
                 sh 'dgoss run -p 80:80 -d -e "NAME=James" -e "AGE=28" ${IMAGE_NAME}:${IMAGE_TAG}'
             }
         }
-        
+
         stage('Push') {
             steps {
                 script {
@@ -30,16 +30,12 @@ pipeline {
                 }
             }
         }
-        stage('Send Email') {
-            steps {
-                script {
-                    emailext attachLog: true, body: 'test', subject: 'Jenkins Job', to: 'lokinroll@gmail.com'
-                    }
-                
-                }
+
+        post {
+         always { 
+             emailext attachLog: true, body: 'test', replyTo: 'lokinroll@gmail.com', subject: 'Jenkins job', to: 'lokinroll@gmail.com'
             }
-        }
-        
+        }  
     
     }
 
