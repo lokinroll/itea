@@ -20,10 +20,6 @@ pipeline {
             }
         }
 
-        stage('Test-Wrong') {
-            steps {
-                sh 'dgoss run -p 80:80 -d -e "NAME=Alex" -e "AGE=30" ${IMAGE_NAME}:${IMAGE_TAG}'
-            }
         }
         
         stage('Push') {
