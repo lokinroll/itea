@@ -25,13 +25,14 @@ pipeline {
         stage('Push') {
             steps {
                 script {
-            //         docker.withRegistry('registry.hub.docker.com/lokinroll/', '6fc38c82-5741-4a26-aa5d-e353dfc20ca9') {
-            //             app.push("/${IMAGE_NAME}:${IMAGE_TAG}")
-            //             // app.push("${env.BUILD_ID}-${COMMIT_ID}")                
-            //         }
+                    docker.withRegistry('registry.hub.docker.com/lokinroll/', '6fc38c82-5741-4a26-aa5d-e353dfc20ca9') {
+                        // app.push("${IMAGE_NAME}:${IMAGE_TAG}")
+                        app.push("latest")
+                        // app.push("${env.BUILD_ID}-${COMMIT_ID}")                
+                    }
                 }
             }
-        }
+    
     }
 
 }
