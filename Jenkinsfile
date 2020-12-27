@@ -23,7 +23,7 @@ pipeline {
         stage('Push') {
             steps {
                 script {
-                    docker.withRegistry('https://registry.hub.docker.com/', '6fc38c82-5741-4a26-aa5d-e353dfc20ca9') {
+                    docker.withRegistry('https://registry.hub.docker.com/', '${DOCKER_CREDS}') {
                         app.push("${IMAGE_TAG}")
                         app.push("latest")
                     }
