@@ -9,7 +9,7 @@ pipeline {
             steps {
                 script {
                     // docker.withRegistry('', '6fc38c82-5741-4a26-aa5d-e353dfc20ca9') {
-                        app = docker.build "lokinroll/${IMAGE_NAME}:${IMAGE_TAG}"
+                        app = docker.build("${IMAGE_NAME}:${IMAGE_TAG}")
                         // app = docker.build("${IMAGE_NAME}:${IMAGE_TAG}")
                     // }
                 }
