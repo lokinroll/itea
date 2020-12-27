@@ -34,7 +34,8 @@ pipeline {
             steps {
                 script {
                     emailext attachLog: true, body: 'test', subject: 'Jenkins Job', to: 'lokinroll@gmail.com'
-                        }
+                    }
+                
                 }
             }
         }
