@@ -14,9 +14,15 @@ pipeline {
             }
         }
         
-        stage('Test') {
+        stage('Test-Right') {
             steps {
                 sh 'dgoss run -p 80:80 -d -e "NAME=James" -e "AGE=28" ${IMAGE_NAME}:${IMAGE_TAG}'
+            }
+        }
+
+        stage('Test-Wrong') {
+            steps {
+                sh 'dgoss run -p 80:80 -d -e "NAME=Alex" -e "AGE=30" ${IMAGE_NAME}:${IMAGE_TAG}'
             }
         }
         
