@@ -8,7 +8,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    app = docker.build("lokinroll/${IMAGE_NAME}:${IMAGE_TAG}")
+                    app = docker.build("${IMAGE_NAME}:${IMAGE_TAG}")
 
                 }
             }
@@ -23,11 +23,8 @@ pipeline {
         stage('Push') {
             steps {
                 script {
-                    docker.withRegistry('https://registry.hub.docker.com/c/', '6fc38c82-5741-4a26-aa5d-e353dfc20ca9') {
-                        // app.push("${IMAGE_NAME}:${IMAGE_TAG}")
                         app.push("latest")
                         // app.push("${env.BUILD_ID}-${COMMIT_ID}")                
-                    }
                 }
             }
         }
